@@ -7,7 +7,7 @@ const morgan = require('morgan')
 
 app.arguments(morgan('combined'))
 app.get("/",(req,res) =>{
-    res.send('Hello YaoYao');
+    res.send('Hello Yaoyao');
 })
 
 app.listen(port,()=>{
