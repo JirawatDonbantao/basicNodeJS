@@ -1,0 +1,245 @@
+/* ================================== 1. การตั้งค่าพื้นฐาน (Reset & Base) ================================== */
+* {
+    /* ตั้งค่า Box Model ให้รวม padding และ border ในความกว้าง/ความสูง */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif; /* เลือกฟอนต์พื้นฐาน */
+    line-height: 1.6;
+    background-color: #f8f8f8; /* สีพื้นหลังอ่อน ๆ */
+    color: #333; /* สีข้อความพื้นฐาน */
+}
+
+a {
+    text-decoration: none; /* ลบขีดเส้นใต้ลิงก์ */
+    color: #333;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #555; /* เปลี่ยนสีเมื่อเมาส์ชี้ */
+}
+
+ul {
+    list-style: none;
+}
+
+/* ตั้งค่าให้เนื้อหาอยู่กึ่งกลางหน้าจอและมีขนาดสูงสุด */
+.main-nav ul,
+.product-list,
+.footer-links,
+.logo,
+.user-actions {
+    display: flex;
+    align-items: center;
+}
+
+/* ================================== 2. ส่วนหัว (Header) ================================== */
+header {
+    background-color: #1a1a1a; /* สีพื้นหลังเข้ม (สำหรับ "คว้นดำ") */
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between; /* จัดวางองค์ประกอบให้กระจายออกไป */
+    align-items: center;
+    border-bottom: 3px solid #e74c3c; /* เพิ่มเส้นขอบเน้นสีแบรนด์ */
+}
+
+header a {
+    color: #fff;
+}
+
+header a:hover {
+    color: #ccc;
+}
+
+.logo h1 {
+    font-size: 1.8em;
+    margin: 0;
+}
+
+/* เมนูนำทางหลัก */
+.main-nav ul li {
+    margin: 0 15px;
+}
+
+/* ไอคอนตะกร้าและลิงก์เข้าสู่ระบบ */
+.user-actions a {
+    margin-left: 20px;
+    font-size: 1.1em;
+}
+
+/* ================================== 3. เนื้อหาหลัก (Main) ================================== */
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* แบนเนอร์ (Hero Banner) */
+.hero-banner {
+    background-color: #34495e; /* สีพื้นหลังแบนเนอร์ */
+    color: #fff;
+    padding: 60px 40px;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+.hero-banner h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #e74c3c; /* ปุ่มเรียกให้ดำเนินการ (CTA) สีแดงเด่น */
+    color: #fff;
+    padding: 10px 25px;
+    margin-top: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.cta-button:hover {
+    background-color: #c0392b;
+}
+
+/* ส่วนสินค้าแนะนำ (Featured Products) */
+.featured-products h2, 
+.shop-features h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+    color: #1a1a1a;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* สร้าง Layout แบบ Grid */
+    gap: 20px; /* ระยะห่างระหว่างสินค้า */
+    margin-bottom: 20px;
+}
+
+.product-card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* ครอบตัดรูปภาพให้เต็มพื้นที่ */
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.product-card h3 {
+    font-size: 1.3em;
+    margin-bottom: 5px;
+}
+
+.product-card .price {
+    color: #e74c3c;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.details-button {
+    display: block;
+    background-color: #3498db;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+.details-button:hover {
+    background-color: #2980b9;
+}
+
+.view-more {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.view-more a {
+    font-weight: bold;
+    color: #34495e;
+    border-bottom: 2px solid #34495e;
+}
+
+/* ส่วนจุดเด่นของร้านค้า (Shop Features) */
+.shop-features {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.shop-features ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 50px;
+    font-size: 1.1em;
+    color: #2ecc71; /* สีเขียวสำหรับสัญลักษณ์ '✅' */
+    font-weight: 600;
+}
+
+.shop-features li {
+    margin: 10px;
+}
+
+
+/* ================================== 4. ส่วนท้าย (Footer) ================================== */
+footer {
+    background-color: #1a1a1a;
+    color: #ccc;
+    padding: 40px 20px 20px;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: #ccc;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+.footer-links {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* ให้แตกบรรทัดเมื่อจอเล็ก */
+}
+
+.footer-links > div {
+    min-width: 200px;
+    margin: 15px;
+}
+
+.footer-links h4 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+
+.footer-links ul li {
+    margin-bottom: 5px;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #333;
+}
