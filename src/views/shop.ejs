@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>คว้นดำ | สินค้าทั้งหมด</title>
+  <link rel="stylesheet" href="/shopstyles.css">
+</head>
+<body>
+  <header>
+    <div class="logo"><h1><a href="/">คว้นดำ</a></h1></div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="/">หน้าหลัก</a></li>
+        <li><a href="/shop">สินค้าทั้งหมด</a></li>
+      </ul>
+    </nav>
+    <div class="user-actions">
+      <input id="search" placeholder="ค้นหาสินค้า..." aria-label="search products">
+      <a id="cart-link" href="/cart.html" class="cart-icon">🛒 (<span id="cart-count">0</span>)</a>
+    </div>
+  </header>
+
+  <main class="shop-container">
+    <section class="filters">
+      <h2>ตัวกรอง</h2>
+      <label>หมวดหมู่:
+        <select id="category-filter">
+          <option value="all">ทั้งหมด</option>
+          <option value="clothing">เสื้อผ้า</option>
+          <option value="accessories">เครื่องประดับ</option>
+          <option value="home">ของใช้ในบ้าน</option>
+        </select>
+      </label>
+      <label>ราคา:
+        <select id="price-filter">
+          <option value="all">ทั้งหมด</option>
+          <option value="0-499">0 - 499 ฿</option>
+          <option value="500-999">500 - 999 ฿</option>
+          <option value="1000+">1000+ ฿</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="products">
+      <h2>สินค้าทั้งหมด</h2>
+      <div id="product-grid" class="product-grid">
+        <% if (!products || products.length === 0) { %>
+          <p>ไม่มีสินค้าที่จะแสดง</p>
+        <% } else { %>
+          <% products.forEach(function(p) { %>
+            <article class="product-card" data-category="<%= p.category %>" data-price="<%= p.price %>">
+              <img src="<%= p.image %>" alt="<%= p.name %>">
+              <h3><%= p.name %></h3>
+              <p class="desc"><%= p.description %></p>
+              <p class="price"><%= p.price %> ฿</p>
+              <div class="actions">
+                <button class="add-to-cart" data-id="<%= p.id %>">เพิ่มลงตะกร้า</button>
+                <a class="details-button" href="/product/<%= p.id %>">ดูรายละเอียด</a>
+              </div>
+            </article>
+          <% }); %>
+        <% } %>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 คว้นดำ</p>
+  </footer>
+
+  
+</body>
+</html>
