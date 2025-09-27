@@ -45,9 +45,7 @@
     <section class="products">
       <h2>สินค้าทั้งหมด</h2>
       <div id="product-grid" class="product-grid">
-        <% if (!products || products.length === 0) { %>
-          <p>ไม่มีสินค้าที่จะแสดง</p>
-        <% } else { %>
+        <% if (typeof products !== 'undefined' && products.length > 0) { %>
           <% products.forEach(function(p) { %>
             <article class="product-card" data-category="<%= p.category %>" data-price="<%= p.price %>">
               <img src="<%= p.image %>" alt="<%= p.name %>">
@@ -60,6 +58,8 @@
               </div>
             </article>
           <% }); %>
+        <% } else { %>
+          <p>ไม่มีสินค้าที่จะแสดง</p>
         <% } %>
       </div>
     </section>
