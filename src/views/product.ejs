@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><%= product.name %> | ร้านค้า</title>
+	<link rel="stylesheet" href="/shopstyles.css">
+</head>
+<body>
+	<header>
+		<div class="logo"><h1><a href="/">ร้านค้า</a></h1></div>
+		<nav class="main-nav">
+			<ul>
+				<li><a href="/">หน้าหลัก</a></li>
+				<li><a href="/shop">สินค้าทั้งหมด</a></li>
+			</ul>
+		</nav>
+		<div class="user-actions">
+			<input id="search" placeholder="ค้นหาสินค้า..." aria-label="search products">
+			<a id="cart-link" href="/cart.html" class="cart-icon">🛒 (<span id="cart-count">0</span>)</a>
+		</div>
+	</header>
+
+	<main class="product-page">
+		<section class="product-detail">
+			<div class="image-wrap">
+				<img src="<%= product.image %>" alt="<%= product.name %>">
+			</div>
+			<div class="info">
+				<h2><%= product.name %></h2>
+				<p class="desc"><%= product.description %></p>
+				<p class="price"><strong><%= product.price %> ฿</strong></p>
+				<p class="category">หมวด: <%= product.category %></p>
+				<div class="actions">
+					<button class="add-to-cart" data-id="<%= product.id %>">เพิ่มลงตะกร้า</button>
+					<a class="back-link" href="/shop">ย้อนกลับ</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<p>&copy; 2025 ร้านค้า</p>
+	</footer>
+</body>
+</html>
